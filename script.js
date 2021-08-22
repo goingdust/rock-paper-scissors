@@ -15,27 +15,21 @@ function playRound(playerSelection, computerSelection) {
   if (computerSelection == playerSelection) {
     return 'It\'s a tie!';
   } else if (computerSelection == 'paper' && playerSelection == 'rock') {
-      return 'Computer wins this round. Paper beats Rock!';
+      computerScore++;
+      return 'Computer chose Paper. Paper beats Rock! Computer wins this round. The score is Computer: ' + computerScore + ' and Player: ' + playerScore + '.';
   } else if (computerSelection == 'scissors' && playerSelection == 'paper') {
-      return 'Computer wins this round. Scissors beats Paper!';
+      computerScore++;
+      return 'Computer chose Scissors. Scissors beats Paper! Computer wins this round. The score is Computer: ' + computerScore + ' and Player: ' + playerScore + '.';
   } else if (computerSelection == 'paper' && playerSelection == 'scissors') {
-      return 'You win this round. Scissors beats Paper!';
+      playerScore++;
+      return 'Computer chose Paper. Scissors beats Paper! You win this round. The score is Computer: ' + computerScore + ' and Player: ' + playerScore + '.';
   } else if (computerSelection == 'rock' && playerSelection == 'paper') {
-      return 'You win this round. Paper beats Rock!';
+      playerScore++;
+      return 'Computer chose Rock. Paper beats Rock! You win this round. The score is Computer: ' + computerScore + ' and Player: ' + playerScore + '.';
   }
 }
 
 function game() {
-  if (playRound() == 'Computer wins this round. Paper beats Rock!') {
-    return computerScore++;
-  } else if (playRound() == 'Computer wins this round. Scissors beats Paper!') {
-    return computerScore++;
-  } else if (playRound() == 'You win this round. Scissors beats Paper!') {
-    return playerScore++;
-  } else if (playRound() == 'You win this round. Paper beats Rock!') {
-    return playerScore++;
-  }
-
   console.log(playRound());
   console.log(playRound());
   console.log(playRound());
@@ -45,7 +39,7 @@ function game() {
   console.log('The final scores are: Computer: ' + computerScore + ' and Player: ' + playerScore + '.');
 
   if (computerScore == playerScore) {
-    return 'It\'s a tie game!';
+    return 'It\'s a tie game! How boring.';
   } else if (computerScore > playerScore) {
     return 'You lose! Sucks to be you!';
   } else if (computerScore < playerScore) {
